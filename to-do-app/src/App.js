@@ -24,9 +24,12 @@ class App extends Component {
   render(){
     return(
       <div className="todo-app container">
-        <h1 className="center pink-text">Todo's</h1>
+        <h1 className="center pink-text">TODOS</h1>
         <AddTodo addTodo={this.addTodo} />
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+        <Todos 
+          todos={this.state.todos} 
+          deleteTodo={this.deleteTodo}/>
+        <div className="left-todo">todos left: {this.state.todos.filter(todo => !todo.complete).length}</div>
       </div> 
     );
   }
