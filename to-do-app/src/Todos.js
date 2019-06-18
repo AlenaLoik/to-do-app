@@ -1,11 +1,19 @@
 import React from 'react'
 
-const Todos = ({todos, deleteTodo}) => {
+const Todos = ({todos, deleteTodo, toggleComplete}) => {
     const todoList = todos.length ? (
         todos.map(todo => {
             return (
                 <div className="collection-item" key={todo.id}>
-                    <span onClick={() => {deleteTodo(todo.id)}}>{todo.content}</span> 
+                    <div>
+                        <input 
+                        type="submit" 
+                        value=" " 
+                        style={{textDecoration: todo.complete ? "line-through" : ""}} 
+                        onClick={() => {toggleComplete(todo.id)}}/>  
+                        <span style={{textDecoration: todo.complete ? "line-through" : ""}}>{todo.content}</span>
+                        <button className="remove-todo right" onClick={() => {deleteTodo(todo.id)}}>X</button>
+                    </div> 
                 </div>
             )
         })
