@@ -20,7 +20,7 @@ class App extends Component {
  
 
   addTodo = (todo) => {
-    todo.id = Math.random();
+    todo.id = Date.now();
     let todos = [...this.state.todos, todo];
     this.setState({
       todos
@@ -42,9 +42,9 @@ class App extends Component {
     }));
   };
 
-  updateTodoToShow = s => {
+  updateTodoToShow = string => {
     this.setState({
-      todoToShow: s
+      todoToShow: string
     });
   };
 

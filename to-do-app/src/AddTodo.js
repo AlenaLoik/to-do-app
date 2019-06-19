@@ -11,11 +11,14 @@ class AddTodo extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        if (this.state.content.length > 0 && this.state.content[0] !== " ") {
         this.props.addTodo(this.state);
         this.setState({
             content: '',
             complete: false
-        })
+        })} else {
+            alert ("Plese add todo")
+        }
     }
     render() {
         return (
