@@ -1,6 +1,15 @@
 import React from 'react'
 
 const Todos = ({todos, deleteTodo, toggleComplete}) => {
+    const completedStyleTodo = {
+        textDecoration: "line-through",
+        color: "#9c9c9c"
+    }
+
+    const fintshedTodo = {
+        
+      }
+    
     const todoList = todos.length ? (
         todos.map(todo => {
             return (
@@ -8,11 +17,10 @@ const Todos = ({todos, deleteTodo, toggleComplete}) => {
                     <div>
                         <input 
                         type="submit" 
-                        value=" " 
-                        style={{textDecoration: todo.complete ? "line-through" : ""}} 
+                        value={todo.complete ? "✓" : "  "} 
                         onClick={() => {toggleComplete(todo.id)}}/>  
-                        <span style={{textDecoration: todo.complete ? "line-through" : ""}}>{todo.content}</span>
-                        <button className="remove-todo right" onClick={() => {deleteTodo(todo.id)}}>X</button>
+                        <span style={todo.complete ? completedStyleTodo : null}>{todo.content}</span>
+                        <button  title="remove todo" className="remove-todo right"  onClick={() => {deleteTodo(todo.id)}}>X</button>
                     </div> 
                 </div>
             )

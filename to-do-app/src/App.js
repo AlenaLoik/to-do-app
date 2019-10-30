@@ -9,7 +9,7 @@ class App extends Component {
   };
 
   deleteTodo = (id) => {
-    const todos = this.state.todos.filter (todo => {
+    const todos = this.state.todos.filter(todo => {
       return todo.id !== id
     });
     this.setState({
@@ -17,7 +17,7 @@ class App extends Component {
     })
   }
 
- 
+
 
   addTodo = (todo) => {
     todo.id = Date.now();
@@ -58,23 +58,25 @@ class App extends Component {
     } else if (this.state.todoToShow === "complete") {
       todos = this.state.todos.filter(todo => todo.complete);
     }
-
     
-    return(
+    
+    return (
       <div className="todo-app container">
         <h1 className="center pink-text">TODOS</h1>
+        <p className="center pink-text">planning is key to success</p>
         <AddTodo addTodo={this.addTodo} />
-        <Todos 
-          todos={todos} 
+        <Todos
+          className="todo-list"
+          todos={todos}
           deleteTodo={this.deleteTodo}
-          toggleComplete={this.toggleComplete}/>
-            <div className="left-todo">todos left: {this.state.todos.filter(todo => !todo.complete).length}</div>
-            <div className="botton-option-todo center">
-              <button className="botton-all" onClick={() => this.updateTodoToShow("all")}>All </button>
-              <button className="botton-active" onClick={() => this.updateTodoToShow("active")}> Active </button>
-              <button className="botton-completed" onClick={() => this.updateTodoToShow("complete")}> Complete </button>
-            </div>
-     </div> 
+          toggleComplete={this.toggleComplete} />
+        <div className="left-todo center">TODOS LEFT: {this.state.todos.filter(todo => !todo.complete).length}</div>
+        <div className="botton-option-todo center">
+          <button className="botton-all" onClick={() => this.updateTodoToShow("all")}>All </button>
+          <button className="botton-active" onClick={() => this.updateTodoToShow("active")}> Active </button>
+          <button className="botton-completed" onClick={() => this.updateTodoToShow("complete")}> Complete </button>
+        </div>
+      </div>
     );
   }
 }
