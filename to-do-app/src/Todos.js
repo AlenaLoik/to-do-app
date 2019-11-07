@@ -6,10 +6,6 @@ const Todos = ({todos, deleteTodo, toggleComplete}) => {
         color: "#9c9c9c"
     }
 
-    const fintshedTodo = {
-        
-      }
-    
     const todoList = todos.length ? (
         todos.map(todo => {
             return (
