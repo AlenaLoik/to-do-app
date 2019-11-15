@@ -42,7 +42,7 @@ class App extends Component {
     }));
   };
 
-  updateTodoToShow = string => {
+  updateTodoToShow = (string) => {
     this.setState({
       todoToShow: string
     });
@@ -58,8 +58,8 @@ class App extends Component {
     } else if (this.state.todoToShow === "complete") {
       todos = this.state.todos.filter(todo => todo.complete);
     }
-    
-    
+
+
     return (
       <div className="todo-app container">
         <h1 className="center pink-text">TODOS</h1>
@@ -70,11 +70,19 @@ class App extends Component {
           todos={todos}
           deleteTodo={this.deleteTodo}
           toggleComplete={this.toggleComplete} />
-        <div className="left-todo center">TODOS LEFT: {this.state.todos.filter(todo => !todo.complete).length}</div>
+        <div className="left-todo center">TODOS LEFT:
+        {this.state.todos.filter(todo => !todo.complete).length}
+        </div>
         <div className="botton-option-todo center">
-          <button className="botton-all" onClick={() => this.updateTodoToShow("all")}>All </button>
-          <button className="botton-active" onClick={() => this.updateTodoToShow("active")}> Active </button>
-          <button className="botton-completed" onClick={() => this.updateTodoToShow("complete")}> Complete </button>
+          <button className="botton-all"
+            onClick={() => this.updateTodoToShow("all")}>All
+          </button>
+          <button className="botton-active"
+            onClick={() => this.updateTodoToShow("active")}> Active
+          </button>
+          <button className="botton-completed"
+            onClick={() => this.updateTodoToShow("complete")}> Complete
+          </button>
         </div>
       </div>
     );

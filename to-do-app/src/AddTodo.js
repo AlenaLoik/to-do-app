@@ -11,7 +11,7 @@ class AddTodo extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        if (this.state.content.length > 0 && this.state.content[0] !== " ") {
+        if (this.state.content.trimStart().length > 0) {
         this.props.addTodo(this.state);
         this.setState({
             content: '',
@@ -22,16 +22,10 @@ class AddTodo extends Component {
     }
     
     render() {
-        const stylesSvg = { }
-        
-            if (this.state.content.length > 0 && this.state.content[0] !== " ") {
-                stylesSvg.opacity ="0.5"
-            } else {
-                stylesSvg.opacity ="0"
-            }
+        const stylesSvg = {}
+        stylesSvg.opacity = this.state.content.length > 0 ? '0.5' : '0';
         
         return (
-            <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>What needs to bee done?</label>
                     <svg class="svg-lamp"   width="30px" height="30px" viewBox="0 0 64 64" style={stylesSvg}>
@@ -41,7 +35,6 @@ class AddTodo extends Component {
                     <input 
                     type="text" onChange={this.handleChange} value={this.state.content} />
                 </form>
-            </div>
         )
     }
 }
