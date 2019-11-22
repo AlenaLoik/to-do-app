@@ -22,7 +22,7 @@ const Todos = ({todos, deleteTodo, toggleComplete}) => {
             )
         })
     ) : (
-        <p className="center">Nothing to do</p>
+        <p className="center">Nothing for now...</p>
     )
     return (
         <div className="todos collection">

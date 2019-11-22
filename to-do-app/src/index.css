@@ -12,8 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 15%;
+
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -25,7 +25,6 @@ code {
 }
 .collection {
 background-color: white;
-width: 50%;
 margin: auto;
 display: flex;
 flex-direction: column;
@@ -48,7 +47,7 @@ button {
 .left-todo {
   padding: 20px;
 }
-.svg-lamp{
+.svg-lamp {
   margin: 5px;
 }
 .motivation {
@@ -58,5 +57,7 @@ button {
   transition: 2c;
   font-size: 10px;
   right: 20%;
-  
+}
+input {
+  border: 1px solid gray;
 }
